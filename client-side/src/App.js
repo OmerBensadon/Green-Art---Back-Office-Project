@@ -1,11 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
+import LoginForm from "./Pages/LoginForm";
 
-import LoginForm from "./Components/LoginForm";
 function App() {
   return (
     <>
       <LoginForm />
+
     </>
   );
 }

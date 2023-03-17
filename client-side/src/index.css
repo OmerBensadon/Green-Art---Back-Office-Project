@@ -65,10 +65,21 @@ code {
   max-width: 100%;
 }
 .login_Button_right {
-margin-right: 1rem;
-padding: 1rem 2rem;
+  margin-right: 1rem;
+  padding: 1rem 2rem;
 }
 .login_Button_left {
-margin-left: 1rem;
-padding: 1rem 2rem;
+  margin-left: 1rem;
+  padding: 1rem 2rem;
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-icon {
+  position: absolute;
+  top: 60%;
+  right: 1rem;
+  cursor: pointer;
 }

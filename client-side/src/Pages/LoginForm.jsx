@@ -1,16 +1,23 @@
 import React, { useState } from "react";
-import BackgroundImage from "./BackgroundImage";
+import BackgroundImage from "../Components/BackgroundImage";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const LoginForm = () => {
   const [usernameInput, setUsernameInput] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const passwordInputHandler = (e) => {
     setPassword(e.target.value);
   };
+
   const usernameInputHandler = (e) => {
     setUsernameInput(e.target.value);
   };
@@ -29,6 +36,7 @@ const LoginForm = () => {
     setPassword("");
     setUsernameInput("");
   };
+
   return (
     <>
       <div className="page">
@@ -39,7 +47,7 @@ const LoginForm = () => {
             alt="Green Art Logo"
             width="200"
             height="100"
-          ></img>
+          />
           <div className="login__controls">
             <div className="login__control">
               <label>כתובת מייל</label>
@@ -48,22 +56,27 @@ const LoginForm = () => {
                 type="text"
                 value={usernameInput}
                 onChange={usernameInputHandler}
-              ></input>
+              />
             </div>
-            <div className="login__control">
+            <div className="login__control password-input-wrapper">
               <label>סיסמא</label>
               <input
                 placeholder="******"
-                type= "password"
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={passwordInputHandler}
-              ></input>
+              />
+              <FontAwesomeIcon
+                icon={showPassword ? faEyeSlash : faEye}
+                onClick={toggleShowPassword}
+                className="password-input-icon"
+              />
             </div>
           </div>
+          <p>
+            <a href="#">שכחתי סיסמא</a>
+          </p>
           <div className="login_Button_right">
-            <Button className="login_Button_right" variant="primary">
-              שכחתי סיסמא
-            </Button>
             <Button
               onClick={loginHandler}
               className="login_Button_left"
