@@ -83,3 +83,8 @@ code {
   right: 1rem;
   cursor: pointer;
 }
+.header {
+  position: static;
+  background-color: #f7fcfa;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
