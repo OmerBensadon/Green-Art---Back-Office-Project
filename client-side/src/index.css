@@ -84,7 +84,15 @@ code {
   cursor: pointer;
 }
 .header {
-  position: static;
+  position: fixed;
   background-color: #f7fcfa;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+.mainComponent {
+  position: relative;
+  top: 60px;
+  padding-left: 0;
+  border: 1px solid #0b0a0a;
+  right: inherit;
+  display: flex;
 }
