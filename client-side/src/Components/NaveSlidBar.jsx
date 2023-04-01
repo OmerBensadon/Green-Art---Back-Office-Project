@@ -18,8 +18,15 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const NaveSlidBar = () => {
+  const [currentPage, setCurrentPage] = useState('home');
+  const ChangePageHandler = (page) =>{
+    setCurrentPage(page)
+    console.log(page + "log - page")
+  }
+
   return (
     <Drawer variant="permanent" anchor="right">
       <img
@@ -29,8 +36,7 @@ const NaveSlidBar = () => {
         height="80"
       />
       <List>
-        <ListItem button>
-         
+        <ListItem button onClick={ChangePageHandler}>
           <ListItemIcon>
             <CalendarMonthIcon />
           </ListItemIcon>
