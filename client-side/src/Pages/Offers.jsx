@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Offers = () => {
   return (
-    <div>Offers</div>
-  )
-}
+    <div>
+      Offers
+      </div>
+  );
+};
 
-export default Offers
+export default Offers;

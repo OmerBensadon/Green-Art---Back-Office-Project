@@ -1,7 +1,12 @@
 import React from "react";
 
+
 const MainPage = () => {
-  return <div className="mainComponent">MainPagefddgfgdfgdfgfdggv</div>;
+  return <div>
+          Hello this The main Page!!!!!!!
+          ofkofkofkfkfofkfkofkfkof <br></br>
+          djdmidjdijdijdidj
+         </div>;
 };
 
 export default MainPage;

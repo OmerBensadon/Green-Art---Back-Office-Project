@@ -1,5 +1,4 @@
-import React from "react";
-import MainPage from "../Pages/MainPage";
+import React, {useState} from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -15,96 +14,112 @@ import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 import InventoryIcon from "@mui/icons-material/Inventory";
-import SettingsIcon from "@mui/icons-material/Settings";
+import SettingsIcon  from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
 
 const NaveSlidBar = () => {
-  const [currentPage, setCurrentPage] = useState('home');
-  const ChangePageHandler = (page) =>{
-    setCurrentPage(page)
-    console.log(page + "log - page")
-  }
-
   return (
+    <div className="naveSlideBar">
     <Drawer variant="permanent" anchor="right">
       <img
+        className="imgToolBar"
         src="/images/logo.jpg"
         alt="Green Art Logo"
-        width="150"
-        height="80"
       />
       <List>
-        <ListItem button onClick={ChangePageHandler}>
-          <ListItemIcon>
-            <CalendarMonthIcon />
-          </ListItemIcon>
-          <ListItemText primary="לוח אירועים" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <BusinessCenterIcon />
-          </ListItemIcon>
-          <ListItemText primary="הצעת מחיר" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="לקוחות" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <ContentPasteIcon />
-          </ListItemIcon>
-          <ListItemText primary="ספקים" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <AccessibilityIcon />
-          </ListItemIcon>
-          <ListItemText primary="צוות" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <AssessmentIcon />
-          </ListItemIcon>
-          <ListItemText primary="דוחות" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <AirportShuttleIcon />
-          </ListItemIcon>
-          <ListItemText primary="רכבים" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <ProductionQuantityLimitsIcon />
-          </ListItemIcon>
-          <ListItemText primary="קטלוג" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <InventoryIcon />
-          </ListItemIcon>
-          <ListItemText primary="מלאים" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText primary="הגדרות" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <LogoutIcon />
-          </ListItemIcon>
-          <ListItemText primary="יציאה" />
-        </ListItem>
+        
+        <div className="listItem">
+        <Link to={"/"}>
+          <ListItem>
+          <ListItemIcon> <CalendarMonthIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="לוח אירועים"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Offers"}>
+          <ListItem>
+          <ListItemIcon> <BusinessCenterIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="הצעת מחיר"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Customers"}>
+         <ListItem>
+          <ListItemIcon> <HomeIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="לקוחות" />
+         </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Suppliers"}>
+          <ListItem>
+          <ListItemIcon> <ContentPasteIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="ספקים" />
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Team"}>
+          <ListItem>
+          <ListItemIcon> <AccessibilityIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="צוות"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Reports"}>
+          <ListItem>
+          <ListItemIcon> <AssessmentIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="דוחות"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Vehicles"}>
+          <ListItem>
+          <ListItemIcon> <AirportShuttleIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="רכבים"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Catalog"}>
+          <ListItem>
+          <ListItemIcon> <ProductionQuantityLimitsIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="קטלוג"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Inventories"}>
+          <ListItem>
+          <ListItemIcon> <InventoryIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="מלאים"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/Setting"}>
+          <ListItem>
+          <ListItemIcon> <SettingsIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="הגדרות"/>
+          </ListItem>
+        </Link>
+        </div>
+        <div className="listItem">
+        <Link to={"/App"}>
+          <ListItem>
+          <ListItemIcon> <LogoutIcon className="iconItem"/> </ListItemIcon>
+          <ListItemText className="textItem" primary="יציאה"/>
+          </ListItem>
+        </Link>
+        </div>
       </List>
-      <Divider />
     </Drawer>
+    </div>
   );
 };
 

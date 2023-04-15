@@ -4,10 +4,11 @@ import { Route, Routes } from "react-router-dom";
 import LoginForm from "./Pages/LoginForm";
 import Layout from "./Components/Layout";
 import MainPage from "./Pages/MainPage";
+
 function App() {
   return (
     <>
-      <Layout />
+      <LoginForm />
     </>
   );
 }

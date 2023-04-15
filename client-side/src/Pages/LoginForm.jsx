@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink } from "react-router-dom";
+
 
 const LoginForm = () => {
   const [usernameInput, setUsernameInput] = useState("");
@@ -40,13 +42,14 @@ const LoginForm = () => {
   return (
     <>
       <div className="page">
+         
         <BackgroundImage />
         <div className="cover">
           <img
             src="/images/logo.jpg"
             alt="Green Art Logo"
-            width="200"
-            height="100"
+            width="180"
+            height="120"
           />
           <div className="login__controls">
             <div className="login__control">
@@ -73,18 +76,12 @@ const LoginForm = () => {
               />
             </div>
           </div>
-          <p>
-            <a href="#">שכחתי סיסמא</a>
-          </p>
-          <div className="login_Button_right">
-            <Button
-              onClick={loginHandler}
-              className="login_Button_left"
-              variant="primary"
-            >
-              כניסה
-            </Button>
-          </div>
+          
+           <a className="pForgot" href="#">שכחתי סיסמא</a>
+
+          <Button onClick={loginHandler} className="login_Button" variant="primary">כניסה</Button>
+          
+
         </div>
       </div>
     </>

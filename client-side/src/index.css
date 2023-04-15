@@ -6,12 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 .page {
   height: 100vh;
   width: 100%;
@@ -20,42 +18,50 @@ code {
   align-items: center;
   z-index: 100;
 }
+.webContainer{
+  display: flex;
+}
 
+/*Log In Form */
 .cover {
-  background-color: #f7fcfa;
-  border-radius: 12px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-  border: 1px solid;
-  width: 30em;
-  height: 30em;
+  background-color: white;
+  opacity: 0.9;  
+  border: 1px white;
+  width: 450px;
+  height: 550px;
   display: flex;
   position: absolute;
-  border-radius: 1em;
+  border-radius: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-
 .bg-image {
   position: fixed;
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  opacity: 0.7;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .login__controls {
+  position: absolute;
+  top: 200px;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1rem;
   text-align: right;
+}
+.pForgot{
+  
+  margin-right: 1rem;
+  margin-top: 200px;
+  padding: 1rem 2rem;
 }
 .login__control label {
   font-weight: bold;
   margin-bottom: 0.5rem;
   display: block;
 }
-
 .login__control input {
   font: inherit;
   padding: 0.5rem;
@@ -64,35 +70,169 @@ code {
   width: 20rem;
   max-width: 100%;
 }
-.login_Button_right {
+.login_Button {
+  
   margin-right: 1rem;
-  padding: 1rem 2rem;
-}
-.login_Button_left {
-  margin-left: 1rem;
   padding: 1rem 2rem;
 }
 
 .password-input-wrapper {
   position: relative;
 }
-
 .password-input-icon {
   position: absolute;
   top: 60%;
   right: 1rem;
   cursor: pointer;
 }
+.naveSlideBar{
+  height: 100%;
+  background-color: #0b0a0a;
+
+}
 .header {
-  position: fixed;
-  background-color: #f7fcfa;
+  position:fixed;
+  top: 0px;
+  left: 0px;
+  height: 65px;
+  width: 1289;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 .mainComponent {
-  position: relative;
-  top: 60px;
-  padding-left: 0;
-  border: 1px solid #0b0a0a;
-  right: inherit;
-  display: flex;
+  position:fixed;
+  margin-top: 64px;
+  width: 1289px;
+  height: 717px;
+  background-color: beige;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }
+.imgToolBar{
+  width: 140px;
+  height: 90px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+.headerCatalog{
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid black;
+}
+.h1Catalog{
+  text-align: right;
+  padding-right: 20px;
+  font-size: 20px;
+  line-height: 60px;
+  font-weight: bold;
+  width: auto;
+}
+.buttonCatalog{
+  background-color:rgb(54, 136, 218);
+  border: 1px rgb(54, 136, 218);
+  position:absolute;
+  top: 15px;
+  left: 20px;
+  line-height: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+}
+#bottun2{
+  left : 130px;
+}
+.catalogMenu{
+  position: absolute;
+  top : 60px;
+  right: 0px;
+  border-left: 1px solid black;
+  height: 100%;
+  width: 250px;
+}
+#catalogMenu2{
+  right: 250px;
+}
+#catalogMenu3{
+  
+  right: 500px;
+  width: 50%;
+  border: 0px;
+  background-color: rgb(243, 242, 242);
+}
+.searchCatalog{
+  width: 100%;
+  height: 35px;
+  background-color: rgb(243, 242, 242);
+  text-align: right;
+  padding-right: 20px;
+  border: 0px;
+  border-bottom: 1px solid black;
+}
+.demoInfo{
+  text-align: center;
+  line-height: 300px;
+  font-weight: bold;
+
+}
+.topDiv3{
+  width: 100%;
+  height: 35px;
+  background-color: rgb(243, 242, 242);
+  border-bottom: 1px solid black;
+}
+.btnDiv3{
+  background-color:rgb(54, 136, 218);
+  border: 1px rgb(54, 136, 218);
+  position:absolute;
+  top: 5px;
+  left: 20px;
+  height: 25px;
+  width: 25px;
+  border-radius: 8px;
+}
+.listItem{
+  margin-top: 7px;
+  width: 100%;
+  height: 50px;
+}
+.iconItem{
+  position: absolute;
+  right: 15px;
+  color: dimgray;
+}
+.textItem{
+  position: absolute;
+  right: 50px;
+  top: 4px;
+  color: dimgray;
+
+}
+.refreshIcon{
+  position:fixed;
+  margin-left: 1210px;
+
+}
+.inner1Vehi{
+  position:fixed;
+  width: 558px;
+  height: 220px;
+  background-color: aqua;
+  border-bottom: 1px solid black;
+
+}
+.inner2Vehi{
+  position:fixed;
+  top: 300px;
+  width: 558px;
+  height: 400px;
+  background-color:bisque;
+  border-bottom: 1px solid black;
+
+}
+
+
