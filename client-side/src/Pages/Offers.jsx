@@ -3,8 +3,20 @@ import React from "react";
 const Offers = () => {
   return (
     <div>
-      Offers
+
+      <div className="headerCatalog">
+      <div></div>
+        <h1 className="h1Catalog">
+          הצעות מחיר
+        </h1>
       </div>
+
+
+      <div></div>
+
+      
+    </div>
+
   );
 };
 

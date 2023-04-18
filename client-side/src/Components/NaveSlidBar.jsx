@@ -17,18 +17,28 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import SettingsIcon  from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link, NavLink } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
-const NaveSlidBar = () => {
+
+
+const NaveSlidBar = (props) => {
+
   return (
-    <div className="naveSlideBar">
-    <Drawer variant="permanent" anchor="right">
+    <div className="NaveBarContainer">
+
+      <div className="imgLogoContainer">
+      <Link to={"/"}>
       <img
-        className="imgToolBar"
-        src="/images/logo.jpg"
+        className="imgLogoSlideBar"
+        src="/images/CompanyName.png"
         alt="Green Art Logo"
       />
+      </Link>
+      </div>
+      
+      <div className="divBottunsSlideBar">
       <List>
-        
+
         <div className="listItem">
         <Link to={"/"}>
           <ListItem>
@@ -110,15 +120,14 @@ const NaveSlidBar = () => {
         </Link>
         </div>
         <div className="listItem">
-        <Link to={"/App"}>
           <ListItem>
-          <ListItemIcon> <LogoutIcon className="iconItem"/> </ListItemIcon>
+          <ListItemIcon> <LogoutIcon className="iconItem"/></ListItemIcon>
           <ListItemText className="textItem" primary="יציאה"/>
           </ListItem>
-        </Link>
         </div>
       </List>
-    </Drawer>
+      </div>
+
     </div>
   );
 };

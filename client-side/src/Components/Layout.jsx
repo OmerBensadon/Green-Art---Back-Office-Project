@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React, {useState} from "react";
+import { BrowserRouter, Routes, Route, Link, Router, Switch } from "react-router-dom";
 import NaveSlidBar from "./NaveSlidBar";
 import Header from "./Header";
 import MainPage from "../Pages/MainPage";
@@ -12,23 +12,16 @@ import Vehicles from "../Pages/Vehicles";
 import Catalog from "../Pages/Catalog";
 import Inventories from "../Pages/Inventories";
 import Setting from "../Pages/Setting";
-import LoginForm from "../Pages/LoginForm";
-import { Login } from "@mui/icons-material";
 import App from "../App";
+import LoginForm from "./LoginForm";
 
-
-const Layout = () => {
+export const Layout = () => {  
   return (
-
-
-
-
-
-    <div className="webContainer">
-      <div className=""><NaveSlidBar/></div>,
-      <div className="header"><Header/></div>,
-      <div className="mainComponent">
-        <Routes>
+    <div className="" >
+      <div><Header/></div>
+      <div><NaveSlidBar/></div>
+      <div className="">
+      <Routes>
           <Route path="/" element={<MainPage/>}/>
           <Route path="/offers" element={<Offers/>}/>
           <Route path="/customers" element={<Customers/>}/>
@@ -39,11 +32,10 @@ const Layout = () => {
           <Route path="/catalog" element={<Catalog/>}/>
           <Route path="/inventories" element={<Inventories/>}/>
           <Route path="/setting" element={<Setting/>}/>
-          <Route path="/app" element={<App/>}/>
-        </Routes>
+          <Route path="/loginform" element={<LoginForm/>}/>
+      </Routes>
       </div>
     </div>
-  );
-};
-
+  )
+}
 export default Layout;

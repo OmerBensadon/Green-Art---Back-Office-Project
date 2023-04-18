@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Routes } from "react-router-dom";
-import LoginForm from "./Pages/LoginForm";
+import LoginForm from "./Components/LoginForm";
 import Layout from "./Components/Layout";
-import MainPage from "./Pages/MainPage";
+import NaveSlidBar from "./Components/NaveSlidBar";
+import TeamPopUp from "./Pages/TeamPopUp";
+import Testing from "./Testing";
 
-function App() {
+
+
+function App(){
+  
+  {/*return(
+   <div className="App">
+    <main>
+      <h1>React Pop Up</h1>
+      <br/>
+      <button>Open PopUp</button> 
+      <TeamPopUp trigger={true}>
+        <h3>My PopUp</h3>
+      </TeamPopUp>
+    </main>
+   </div>
+  );*/}
+  {/*const [ currentForm, setCurrentForm] = useState('loginform');
+  const toggleForm = (formName) => {
+    setCurrentForm(formName)
+  }
   return (
-    <>
-      <LoginForm />
-    </>
-  );
-}
+    <div>
+      {currentForm === "loginform" ? <LoginForm onFormSwitch={toggleForm}/> : <Layout/>}
+  </div>
+  );*/}
 
+  return(
+  <Testing/>
+  )
+}
 export default App;
