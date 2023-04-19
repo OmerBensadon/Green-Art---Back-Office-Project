@@ -67,7 +67,7 @@ const MainPage = () => {
         <h1 className="h1Catalog">לוח אירועים</h1>
       </div>
 
-      <div>
+      <div className="innerMainBody">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"

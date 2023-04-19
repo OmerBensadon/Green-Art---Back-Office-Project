@@ -210,14 +210,15 @@ code {
 }
 .iconItem{
   position:absolute;
-  right: 20px;
+  right: 10px;
   color: #000000b5;
 }
 .textItem{
   position: absolute;
-  right: 60px;
+  right: 40px;
   top: 4px;
   color: #000000b5;
+  white-space: nowrap;
 }
 
 
@@ -247,11 +248,23 @@ code {
 
 
 
-
 #MainBody{
   background-color:white;
   grid-area: MainBody;
-  
+  justify-content:right;
 }
-
+.innerMainBody{
+  height: 100vh;
+  overflow: scroll;
+}
+.fc-direction-ltr{
+  direction: rtl;
+  text-align: center;
+}
+.fc .fc-scroller-harness{
+  direction: rtl;
+}
+colgroup{
+  direction: rtl;
+}
 
