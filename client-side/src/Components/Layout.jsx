@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import { BrowserRouter, Routes, Route, Link, Router, Switch } from "react-router-dom";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Routes, Route } from "react-router-dom";
 import NaveSlidBar from "./NaveSlidBar";
 import Header from "./Header";
 import MainPage from "../Pages/MainPage";
@@ -12,16 +13,15 @@ import Vehicles from "../Pages/Vehicles";
 import Catalog from "../Pages/Catalog";
 import Inventories from "../Pages/Inventories";
 import Setting from "../Pages/Setting";
-import App from "../App";
 import LoginForm from "./LoginForm";
 
-export const Layout = () => {  
+export const Layout = () => {
   return (
-    <div className="" >
-      <div><Header/></div>
-      <div><NaveSlidBar/></div>
-      <div className="">
-      <Routes>
+    <div className="root">
+       <div id="Header"><Header/></div>
+       <div id="NaveBar"><NaveSlidBar/></div>    
+       <div id="MainBody">
+       <Routes>
           <Route path="/" element={<MainPage/>}/>
           <Route path="/offers" element={<Offers/>}/>
           <Route path="/customers" element={<Customers/>}/>
@@ -33,9 +33,9 @@ export const Layout = () => {
           <Route path="/inventories" element={<Inventories/>}/>
           <Route path="/setting" element={<Setting/>}/>
           <Route path="/loginform" element={<LoginForm/>}/>
-      </Routes>
-      </div>
+        </Routes>
+       </div>
     </div>
-  )
-}
+  );
+};
 export default Layout;

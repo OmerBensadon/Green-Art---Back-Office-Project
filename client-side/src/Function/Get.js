@@ -1,4 +1,4 @@
-const apiURL = "https://localhost:????/api";
+const apiURL = "http://cgroup96@194.90.158.74/cgroup96/prod/api/employee/get";
 
 export async function Get(endPoint) {
   try {

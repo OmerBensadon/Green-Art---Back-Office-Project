@@ -4,9 +4,7 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { BrowserRouter, Routes, Route, Link, NavLink, useNavigate } from "react-router-dom";
-import Layout from "./Layout";
-import { Login } from "@mui/icons-material";
+
 
 export const LoginForm = (props) => {
   const [usernameInput, setUsernameInput] = useState("");
@@ -32,6 +30,7 @@ export const LoginForm = (props) => {
       passwordInput: password,
     };
     console.log(inputInfo);
+    props.onFormSwitch("Layout");
     resetTextHandler();
   };
   const resetTextHandler = () => {
@@ -75,12 +74,20 @@ export const LoginForm = (props) => {
               />
             </div>
           </div>
-           <a className="pForgot" href="#">שכחתי סיסמא</a>
+          <a className="pForgot" href="#">
+            שכחתי סיסמא
+          </a>
 
           {/*<Link to={"/Layout"}>*/}
-          <Button onClick={() => props.onFormSwitch('layout')} className="login_Button" variant="primary">כניסה</Button>
+          <Button
+            onClick={loginHandler}
+            // onClick={() => props.onFormSwitch("testing")} // this is for testing
+            className="login_Button"
+            variant="primary"
+          >
+            כניסה
+          </Button>
           {/*</Link>*/}
-
         </div>
       </div>
     </>
@@ -88,4 +95,3 @@ export const LoginForm = (props) => {
 };
 
 export default LoginForm;
-
