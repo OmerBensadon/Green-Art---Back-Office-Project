@@ -3,7 +3,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import NewCalendarEvent from "../Components/NewCalendarEvent";
+import NewCalendarEvent from "./NewCalendarEvent";
 
 const MainPage = () => {
   const hebrewCalendar = {
@@ -43,28 +43,30 @@ const MainPage = () => {
     { title: "event 1", date: "2023-04-18" },
     { title: "event 2", date: "2023-04-19" },
   ]);
-
   const [isAddingEvent, setIsAddingEvent] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
 
   const handleDateSelect = (selectInfo) => {
     setSelectedDate(selectInfo.startStr);
-    setIsAddingEvent(true);
+    {/*setIsAddingEvent(true);*/}
   };
-
   const handleCancel = () => {
-    setIsAddingEvent(false);
+    {/*setIsAddingEvent(false);*/}
   };
-
   const handleSave = ({ title, date }) => {
     setEvents([...events, { title, date }]);
-    setIsAddingEvent(false);
+    {/*setIsAddingEvent(false);*/}
   };
+
   return (
     <div>
       <div className="headerCatalog">
-        <button className="buttonCatalog">הוספת אירוע</button>
+
+        <button className="buttonCatalog" onClick={() => setIsAddingEvent(true)}>
+          הוספת אירוע
+        </button>
         <h1 className="h1Catalog">לוח אירועים</h1>
+      
       </div>
 
       <div className="innerMainBody">
@@ -83,6 +85,8 @@ const MainPage = () => {
         />
         {isAddingEvent && (
           <NewCalendarEvent
+            trigger={isAddingEvent}
+            setTrigger={setIsAddingEvent}
             date={selectedDate}
             onCancel={handleCancel}
             onSave={handleSave}

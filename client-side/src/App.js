@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginForm from "./Components/LoginForm";
 import Layout from "./Components/Layout";
-import NaveSlidBar from "./Components/NaveSlidBar";
-import TeamPopUp from "./Pages/TeamPopUp";
-import Testing from "./Testing";
-
-
 
 function App(){
   
@@ -14,6 +9,7 @@ function App(){
   const toggleForm = (formName) => {
     setCurrentForm(formName)
   }
+
   return (
     <div>
       {currentForm === "loginform" ? (
@@ -23,7 +19,6 @@ function App(){
       )}
     </div>
   );
-
 
 }
 export default App;

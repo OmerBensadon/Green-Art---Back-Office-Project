@@ -5,7 +5,7 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString("he-IL", options);
 };
 
-const NewCalendarEvent = ({ date, onCancel, onSave }) => {
+const NewCalendarEvent = ( props, date, onCancel, onSave ) => {
   const [title, setTitle] = useState("");
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
@@ -14,28 +14,31 @@ const NewCalendarEvent = ({ date, onCancel, onSave }) => {
     setTitle(event.target.value);
     console.log("Title:" + event.target.value);
   };
-
   const handleTimeChange = (event) => {
     setTime(event.target.value);
     console.log("Time:" + event.target.value);
   };
-
   const handlePlaceChange = (event) => {
     setPlace(event.target.value);
     console.log("Place:" + event.target.value);
   };
-
   const handleSave = () => {
     onSave({ title, date, time, place });
     console.log("New Event" + title, date, time, place);
   };
 
-  return (
-    <div className="new-event-modal">
-      <div className="new-event-form">
-        <h3>הוספת אירוע חדש</h3>
-        <p>תאריך: {formatDate(date)}</p>
-        <form>
+  return props.trigger ? (
+
+  <div className="popUp">
+
+      <div className="innerPopUp">
+      
+        <div className="new-event-modal">
+          <div className="new-event-form">
+          <h1 className="h1PopUp">הוספת אירוע חדש</h1>
+          <p>תאריך: {formatDate(date)}</p>
+          
+          <form>
           <label htmlFor="title-input">כותרת:</label>
           <input
             id="title-input"
@@ -64,7 +67,7 @@ const NewCalendarEvent = ({ date, onCancel, onSave }) => {
           />
           <br />
           <div className="form-buttons">
-            <button type="button" onClick={onCancel}>
+            <button type="button" onClick={() => props.setTrigger(false)}>
               ביטול
             </button>
             <button type="button" onClick={handleSave}>
@@ -74,6 +77,10 @@ const NewCalendarEvent = ({ date, onCancel, onSave }) => {
         </form>
       </div>
     </div>
+    </div>
+    </div>
+  ) : (
+    ""
   );
 };
 

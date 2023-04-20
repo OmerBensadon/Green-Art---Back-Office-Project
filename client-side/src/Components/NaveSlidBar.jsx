@@ -19,8 +19,6 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Link, NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-
-
 const NaveSlidBar = (props) => {
 
   return (

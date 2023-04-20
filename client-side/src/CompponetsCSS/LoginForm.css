@@ -1,0 +1,54 @@
+#mainPageLoginForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imgLoninForm{
+  background-image: url(../images/LoginImage.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);  
+  opacity: 0.5;
+  width: 100vw;
+  height: 100vh;
+}
+.innerLogInCover {
+    background-color: white;
+    opacity: 0.9;  
+    border: 1px white;
+    width: 450px;
+    height: 550px;
+    display: flex;
+    position: absolute;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items:center;
+    justify-content:space-between;
+    padding: 40px;
+    text-align: right;
+}
+.login__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+    text-align: left;
+}
+.login__control label {
+    font-weight: bold;
+    display: block;
+}
+.password-input-wrapper {
+    position: relative;
+}
+.password-input-icon {
+    position: absolute;
+    top: 60%;
+    right: 1rem;
+    cursor: pointer;
+}
+  

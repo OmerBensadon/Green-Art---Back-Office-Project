@@ -3,17 +3,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import NaveSlidBar from "./NaveSlidBar";
 import Header from "./Header";
-import MainPage from "../Pages/MainPage";
+import MainPage from "../Pages/MainPage/MainPage";
 import Offers from "../Pages/Offers";
 import Customers from "../Pages/Customers";
 import Suppliers from "../Pages/Suppliers";
-import Team from "../Pages/Team";
+import Team from "../Pages/TeamPage/Team";
 import Reports from "../Pages/Reports";
 import Vehicles from "../Pages/Vehicles";
 import Catalog from "../Pages/Catalog";
 import Inventories from "../Pages/Inventories";
 import Setting from "../Pages/Setting";
 import LoginForm from "./LoginForm";
+import "../CompponetsCSS/Layout.css"
 
 export const Layout = () => {
   return (

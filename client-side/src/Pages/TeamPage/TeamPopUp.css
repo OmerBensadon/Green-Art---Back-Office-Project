@@ -13,19 +13,32 @@
 .innerPopUp{
     position:relative;
     padding: 30px;
-    height: 400px;
-    width: 100%;
     max-width: 640px;
     background-color: #fff;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5); 
 }
 .innerPopUp .closeBtn{
     position: absolute;
+    justify-content: center;
+    align-items: center;
     bottom: 20px;
 }
 .h1PopUp{
     text-align: center;
     font-size: 15px;
+}
+
+.registerEmployee {
+    position: absolute;
+    top: 200px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: right;
+}
+
+.ltrInput{
+    direction: ltr;
 }

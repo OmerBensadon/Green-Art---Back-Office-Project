@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import TeamPopUp from "./TeamPopUp";
-import { fetchEmployees } from "./api";
+import { fetchEmployees } from "../api";
 
 function Team() {
+
   const [employees, setEmployees] = useState([]);
 
   // useEffect(() => {
@@ -17,6 +18,7 @@ function Team() {
   //       console.error("Error fetching employees data: ", error);
   //     });
   // }, []);
+  
   useEffect(() => {
     const getEmployees = async () => {
       const data = await fetchEmployees();
@@ -69,7 +71,6 @@ function Team() {
       right: true,
     },
   ];
-
   const [buttonPopUp, setButtonPopUp] = useState(false);
 
   return (
