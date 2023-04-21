@@ -2,37 +2,35 @@ import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import TeamPopUp from "./TeamPopUp";
 import { fetchEmployees } from "../api";
+import { Button } from "react-bootstrap";
 
 function Team() {
-
   const [employees, setEmployees] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://cgroup96@194.90.158.74/cgroup96/prod/api/employee/get")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setEmployees(data);
-  //       console.log("my data from the server", data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching employees data: ", error);
-  //     });
-  // }, []);
-  
   useEffect(() => {
-    const getEmployees = async () => {
-      const data = await fetchEmployees();
-      setEmployees(data);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://cors-anywhere.herokuapp.com/http://194.90.158.74/cgroup96/prod/api/employee/get"
+        );
+        const data = await response.json();
+        setEmployees(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching employees data: ", error);
+      }
     };
-    getEmployees();
+
+    fetchData();
   }, []);
+
   const columns = [
     {
       name: "הגדרות",
       selector: "setting",
       sortable: true,
       right: true,
-      cell: (row) => <button>עריכה</button>,
+      cell: (row) => <Button onClick={()=>('')}>עריכה</Button>,
     },
     {
       name: "תפקיד",
@@ -71,6 +69,29 @@ function Team() {
       right: true,
     },
   ];
+  const data = [
+    {
+      setting: <button>עריכה</button>,
+      position: "מנהל",
+      lastname: "בנסעדון",
+      firstname: "עומר",
+      id: "234567",
+    },
+    {
+      setting: "-",
+      position: "נהגת",
+      lastname: "אלקובי",
+      firstname: "לין",
+      id: "123456",
+    },
+    {
+      setting: "-",
+      position: "נהג",
+      lastname: "אפשטיין",
+      firstname: "דור",
+      id: "345678",
+    },
+  ];
   const [buttonPopUp, setButtonPopUp] = useState(false);
 
   return (
@@ -83,11 +104,11 @@ function Team() {
       </div>
       <div>
         <TeamPopUp trigger={buttonPopUp} setTrigger={setButtonPopUp} />
-        <DataTable columns={columns} data={employees} fixedHeader />
+        {/* <DataTable columns={columns} data={employees} fixedHeader /> */}
+        <DataTable columns={columns} data={data} fixedHeader></DataTable>
       </div>
     </div>
   );
 }
 
 export default Team;
-

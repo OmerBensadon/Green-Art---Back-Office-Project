@@ -48,35 +48,34 @@ const MainPage = () => {
 
   const handleDateSelect = (selectInfo) => {
     setSelectedDate(selectInfo.startStr);
-    {/*setIsAddingEvent(true);*/}
+    setIsAddingEvent(true);
   };
-  const handleCancel = () => {
-    {/*setIsAddingEvent(false);*/}
-  };
+
   const handleSave = ({ title, date }) => {
     setEvents([...events, { title, date }]);
-    {/*setIsAddingEvent(false);*/}
+    setIsAddingEvent(false);
   };
 
   return (
     <div>
       <div className="headerCatalog">
-
-        <button className="buttonCatalog" onClick={() => setIsAddingEvent(true)}>
+        <button
+          className="buttonCatalog"
+          onClick={() => setIsAddingEvent(true)}
+        >
           הוספת אירוע
         </button>
         <h1 className="h1Catalog">לוח אירועים</h1>
-      
       </div>
 
-      <div className="innerMainBody">
+      <div className="innerMainBody" style={{ backgroundColor: "white" }}>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
           headerToolbar={{
-            left: "prev,next today",
+            right: "next today,prev",
             center: "title",
-            right: "dayGridMonth,timeGridWeek,timeGridDay",
+            left: "dayGridMonth,timeGridWeek,timeGridDay",
           }}
           locale={hebrewCalendar}
           events={events}
@@ -88,7 +87,6 @@ const MainPage = () => {
             trigger={isAddingEvent}
             setTrigger={setIsAddingEvent}
             date={selectedDate}
-            onCancel={handleCancel}
             onSave={handleSave}
           />
         )}
