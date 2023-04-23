@@ -9,9 +9,9 @@ import Customers from "../Pages/Customers";
 import Suppliers from "../Pages/Suppliers";
 import Team from "../Pages/TeamPage/Team";
 import Reports from "../Pages/Reports";
-import Vehicles from "../Pages/Vehicles";
+import Vehicles from "../Pages/VehiclesPage/Vehicles";
 import Catalog from "../Pages/Catalog";
-import Inventories from "../Pages/Inventories";
+import Inventories from '../Pages/InventoriesPage/Inventories'
 import Setting from "../Pages/Setting";
 import LoginForm from "./LoginForm";
 import "../CompponetsCSS/Layout.css"
