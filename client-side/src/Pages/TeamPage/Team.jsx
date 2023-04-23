@@ -10,9 +10,11 @@ function Team() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://cors-anywhere.herokuapp.com/http://194.90.158.74/cgroup96/prod/api/employee/get"
-        );
+        const response = await fetch('http://194.90.158.74/cgroup96/prod/api/employee/get', {
+          headers: {
+            'Authorization': 'Basic ' + btoa('username:password')
+          }
+          })
         const data = await response.json();
         setEmployees(data);
         console.log(data);
