@@ -7,6 +7,7 @@ function App(){
   
   const [ currentForm, setCurrentForm] = useState('loginform');
   const toggleForm = (formName) => {
+    console.log("Switching to", formName);
     setCurrentForm(formName)
   }
 

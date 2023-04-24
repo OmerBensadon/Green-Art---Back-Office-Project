@@ -5,12 +5,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "../CompponetsCSS/LoginForm.css"
 
+
+const username1 = 'cgroup96';
+const password1= 'your_password';
+const urllogin='http://194.90.158.74/cgroup96/prod/api/employee/login';
+const headers = new Headers();
+headers.append('Authorization', 'Basic ' + btoa(username1 + ':' + password1));
+
+
+
 export const LoginForm = (props) => {
   const [usernameInput, setUsernameInput] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [forggotPassword, setForggotPassword] = useState(false);
-
+  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessageVisible, setErrorMessageVisible] = useState(false);
   const changePassword = () => {
     setForggotPassword(!forggotPassword);
   }
@@ -30,18 +40,63 @@ export const LoginForm = (props) => {
   const loginHandler = (e) => {
     e.preventDefault();
     const inputInfo = {
-      emailInput: usernameInput,
-      passwordInput: password,
+      username: usernameInput,
+      password: password
     };
     console.log(inputInfo);
-    props.onFormSwitch("Layout");
-    resetTextHandler();
+    
+    console.log('Before fetch call');
+    fetch(urllogin,{
+      method: 'POST',
+      headers: {
+        ...headers, // Spread the existing headers
+        'Content-Type': 'application/json' // Add the 'Content-Type' header
+      },
+      body: JSON.stringify(inputInfo)
+    })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Fetch response:', response);
+        return response.json();
+        
+      } else {
+        setErrorMessage("!שם משתמש או סיסמא לא נכונים, אנא נסה שנית");
+         setErrorMessageVisible(true);
+         setTimeout(() => {
+         setErrorMessage("");
+         setErrorMessageVisible(false);
+         }, 3000); 
+        throw new Error('Network response was not ok');
+        
+      }
+    })
+    .then((data) => {
+      console.log('Data:', data);
+      if (data==='User Authenticated Successfully') {
+        // authentication succeeded, navigate to next page
+        console.log("Authentication succeeded, switching to Layout");
+        props.onFormSwitch("Layout");
+        
+        resetTextHandler();
+      } else {
+        // authentication failed, display error message
+        
+      }
+    })
+    .catch((error) => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+  
+
+
   };
   const resetTextHandler = () => {
     setPassword("");
     setUsernameInput("");
   };
 
+ 
+  
 
   return (
     <div id="mainPageLoginForm">
@@ -56,9 +111,9 @@ export const LoginForm = (props) => {
       {forggotPassword === false ? (
       <>
        <div className="login__control">
-        <label>כתובת מייל</label>
+        <label>תעודת זהות</label>
         <input
-          placeholder="Anonimus@gmail.com"
+          placeholder="333222111"
           type="text"
           value={usernameInput}
           onChange={usernameInputHandler}
@@ -78,14 +133,19 @@ export const LoginForm = (props) => {
             />
            </div>
           <a href="#" onClick={changePassword} >שכחתי סיסמא</a>
-          <Button onClick={loginHandler} className="login_Button" variant="primary">
-            כניסה
+          <Button
+           onClick={loginHandler}
+           className="login_Button"
+          variant="primary"
+          type="button"
+          >
+             כניסה
           </Button>
         </>) : (
         <>
         <label>נא למלא את הפרטים על מנת לקבל סיסמא חדשה</label>
         <div className="login__control">
-        <label>כתובת מייל</label>
+        <label>תעודת זהות</label>
         <input
           placeholder="Anonimus@gmail.com"
           type="text"
@@ -93,7 +153,7 @@ export const LoginForm = (props) => {
           onChange={usernameInputHandler}
         /></div>
         <div className="login__control password-input-wrapper">
-          <label>סיסמא</label>
+          <label>כתובת אי-מייל</label>
           <input
             placeholder="******"
             type={showPassword ? "text" : "password"}
@@ -112,6 +172,13 @@ export const LoginForm = (props) => {
           </Button>
       </>)}
       </div>
+
+      {errorMessage !== "" && (
+  <div className="popup">
+    <div className="message">{errorMessage}</div>
+  </div>
+)}
+
     </div>
   );
 }

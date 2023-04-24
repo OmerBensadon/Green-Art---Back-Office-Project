@@ -96,7 +96,9 @@ function Inventories() {
             itemAmount: st.itemAmount,
             itemDescription: st.itemDescription,
             id: st.employee_id,
-            itemPicture: st.itemPicture
+            itemPicture: st.itemPicture,
+            key:st.itemSerialNum
+          
           };
         });
         console.log(updatedDatainfo);
