@@ -3,38 +3,6 @@ import DataTable from "react-data-table-component";
 import { Button } from "react-bootstrap";
 import InventoryPopUp from "./InventoryPopUp";
 
-
-
-
-
-
-let data=[{
-  setting: <button>עריכה</button>,
-  itemSerialNum:"2",
-  itemName: "מנהל",
-  itemAmount: "בנסעדון",
-  itemDescription: "עומר",
-  id: "1131235",
-  itemPicture:"picture"
-},
-{
-  setting: "-",
-  position: "נהגת",
-  lastname: "אלקובי",
-  firstname: "לין",
-  id: "123456",
-},
-{
-  setting: "-",
-  position: "נהג",
-  lastname: "אפשטיין",
-  firstname: "דור",
-  id: "345678",
-}
-];
-
-
-
 const url = 'http://194.90.158.74/cgroup96/prod/api/inventoryItems/get?timestamp=' + Date.now();
 
 const urlpost='http://194.90.158.74/cgroup96/prod/api/inventoryItems/post';
@@ -44,8 +12,6 @@ const password = 'your_password';
 
 const headers = new Headers();
 headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
-
-
 
 
 function addInventoryItem(item,refreshData) {
@@ -73,14 +39,12 @@ function addInventoryItem(item,refreshData) {
 }
 
 
-
 function Inventories() {
   const [datainfo, setDatainfo] = useState([]);
   const [buttonPopUp, setButtonPopUp] = useState(false);
   const [dataUpdated, setDataUpdated] = useState(false);
 
   const refreshData = useCallback(() => setDataUpdated(!dataUpdated), [dataUpdated]);
-
 
   function deleteInventoryItem(itemId) {
     fetch(urldelete, {
