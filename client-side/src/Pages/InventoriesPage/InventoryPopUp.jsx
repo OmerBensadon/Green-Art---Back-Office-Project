@@ -1,47 +1,45 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
-
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 
-
-
 function InventoryPopUp({ trigger, setTrigger, addInventoryItem, children }) {
+
   const [itemSerialNum, setSerialNum] = useState("");
   const [itemName, setItemName] = useState("");
   const [amount, setAmount] = useState("");
   const [itemDescription, setitemDescription] = useState("");
   const [employee_id, setemployee_id] = useState("");
 
-
   const setSerialNumInput = (e) => {
     setSerialNum(e.target.value);
     console.log("SerialNum:" + e.target.value);
-  }
+    }
   
- const setItemNameInput = (e) => {
-    setItemName( e.target.value);
-   console.log("ItemName:" + e.target.value);
- };
+  const setItemNameInput = (e) => {
+        setItemName( e.target.value);
+        console.log("ItemName:" + e.target.value);
+    };
+
   const setAmountInput = (e) => {
-    setAmount( e.target.value);
-    console.log("Amount:" + e.target.value);
-  };
-   const setitemDescriptionInput = (e) => {
-    setitemDescription( e.target.value);
-     console.log("itemDescription:" + e.target.value);
-   };
-    const setemployee_idInput = (e) => {
+        setAmount( e.target.value);
+        console.log("Amount:" + e.target.value);
+    };
+
+  const setitemDescriptionInput = (e) => {
+        setitemDescription( e.target.value);
+        console.log("itemDescription:" + e.target.value);
+    };
+
+  const setemployee_idInput = (e) => {
         setemployee_id( e.target.value);
-       console.log("employee_id:" + e.target.value);
+        console.log("employee_id:" + e.target.value);
     };
 
   const saveHandler = (e) => {
     e.preventDefault();
-    const newItemInput = {
+        const newItemInput = {
         itemSerialNum: itemSerialNum,
         itemName:itemName,
         itemDescription: itemDescription,
@@ -56,6 +54,7 @@ function InventoryPopUp({ trigger, setTrigger, addInventoryItem, children }) {
     resetTextHandler();
     setTrigger(false);
   };
+
   const resetTextHandler = () => {
     setSerialNum("");
     setItemName("");
@@ -63,6 +62,7 @@ function InventoryPopUp({ trigger, setTrigger, addInventoryItem, children }) {
     setitemDescription("");
     setemployee_id("");
   };
+  
   const closeForm = () => {
     setTrigger(false);
   };

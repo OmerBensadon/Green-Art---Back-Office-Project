@@ -4,6 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import NewCalendarEvent from "./NewCalendarEvent";
+import "./MainPageCss.css";
 
 const MainPage = () => {
   const hebrewCalendar = {
@@ -57,18 +58,21 @@ const MainPage = () => {
   };
 
   return (
-    <div>
-      <div className="headerCatalog">
+
+    <div id="mainBodyMainPage">
+
+      <div id="headerMainPage">
         <button
-          className="buttonCatalog"
-          onClick={() => setIsAddingEvent(true)}
-        >
+          className="buttonMainPage"
+          onClick={() => setIsAddingEvent(true)}> 
           הוספת אירוע
         </button>
-        <h1 className="h1Catalog">לוח אירועים</h1>
+        <h1>לוח אירועים</h1>
       </div>
 
-      <div className="innerMainBody" style={{ backgroundColor: "white" }}>
+
+      <div id="innerMainPage" style={{ backgroundColor: "white" }}>
+        <div className="calanderRight">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
@@ -90,6 +94,12 @@ const MainPage = () => {
             onSave={handleSave}
           />
         )}
+        </div>
+
+        <div className="dataListLeft">
+        <div>רשימת אירועים</div>
+          ijfifji
+        </div>
       </div>
     </div>
   );

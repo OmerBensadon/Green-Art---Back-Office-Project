@@ -51,7 +51,6 @@
     right: 1rem;
     cursor: pointer;
 }
-  
 
 .popup {
     position: fixed;
@@ -93,3 +92,4 @@
       opacity: 0;
     }
   }
+  

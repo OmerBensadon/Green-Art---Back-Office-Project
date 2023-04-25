@@ -4,15 +4,15 @@ import { Routes, Route } from "react-router-dom";
 import NaveSlidBar from "./NaveSlidBar";
 import Header from "./Header";
 import MainPage from "../Pages/MainPage/MainPage";
-import Offers from "../Pages/Offers";
-import Customers from "../Pages/Customers";
-import Suppliers from "../Pages/Suppliers";
+import Offers from "../Pages/OfferPage/Offers";
+import Customers from "../Pages/CustomersPage/Customers";
+import Suppliers from "../Pages/SuppliersPage/Suppliers";
 import Team from "../Pages/TeamPage/Team";
-import Reports from "../Pages/Reports";
+import Reports from "../Pages/ReportsPage/Reports";
 import Vehicles from "../Pages/VehiclesPage/Vehicles";
-import Catalog from "../Pages/Catalog";
-import Inventories from '../Pages/InventoriesPage/Inventories'
-import Setting from "../Pages/Setting";
+import Catalog from "../Pages/CatalogPage/Catalog";
+import Inventories from "../Pages/InventoriesPage/Inventories";
+import Setting from "../Pages/SettingPage/Setting";
 import LoginForm from "./LoginForm";
 import "../CompponetsCSS/Layout.css"
 

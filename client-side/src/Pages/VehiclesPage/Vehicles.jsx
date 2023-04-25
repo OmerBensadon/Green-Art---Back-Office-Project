@@ -1,7 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
-import DataTable from "react-data-table-component";
-import { Button } from "react-bootstrap";
+import React, {useState, useEffect, useCallback} from "react";
+import "./VehiclesCss.css";
 import VehiclesPopUp from "./VehiclesPopUp";
+import DataTable from "react-data-table-component";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 
 const url =
   "http://194.90.158.74/cgroup96/prod/api/vehicleList/get?timestamp=" +
@@ -108,70 +112,99 @@ const Vehicles = () => {
 
    const columns = [
      {
-       name: "מחיקת רכב",
-       selector: "delete",
+       name: " ",
+       selector: "action",
        sortable: false,
        right: true,
-       cell: (row) => (
-         <Button onClick={() => deleteVehicle(row.itemSerialNum)}>
-           מחיקת רכב
-         </Button>
-       ),
-     },
-     {
-       name: "עדכון רכב",
-       selector: "setting",
-       sortable: true,
-       right: true,
-       cell: (row) => <Button onClick={() => ""}>עדכון רכב</Button>,
+       button: true,
+       width: '10%',
+       cell: row => (
+        <div className="iconsDataTable">
+          <EditIcon onClick={() => ""}/>
+          <DeleteIcon onClick={() => deleteVehicle(row.itemSerialNum)}/>
+        </div>),
      },
      {
        name: "מספר רישוי",
        selector: "licensePlateNum",
        sortable: true,
        right: true,
+       width: '20%',
      },
      {
-       name: "סוג רכב",
+       name: " סוג רכב",
        selector: "vehicleType",
        sortable: true,
        right: true,
+       width: '25%',
      },
      {
        name: " בעלות",
        selector: "vehicleOwnership",
        sortable: true,
        right: true,
+       width: '15%',
      },
      {
        name: "צבע",
        selector: "vehicleColor",
        sortable: true,
        right: true,
+       width: '15%',
      },
      {
-       name: "שנת יצור",
-       selector: "manufacturingYear",
-       sortable: true,
-       right: true,
-     },
+      name: "שנת יצור",
+      selector: "manufacturingYear",
+      sortable: true,
+      right: true,
+      width: '15%',
+    },
    ];
 
   return (
-    <div>
-      <div className="headerCatalog">
-        <button onClick={() => setButtonPopUp(true)} className="buttonCatalog">
-          יצירת רכב חדש
+    <div id="mainBodyVehicles">
+
+      <div id="headerVehicles">
+        <button onClick={() =>setButtonPopUp(true)} className="buttonVehicles" >
+          הוספת רכב חדש
         </button>
-        <h1 className="h1Catalog">רכבים</h1>
+        <h1>רכבים</h1>
       </div>
-      <VehiclesPopUp
-        trigger={buttonPopUp}
-        setTrigger={setButtonPopUp}
-        addVehiclesItem={(item) => addVehiclesItem(item, refreshData)}
-      />
-      <DataTable columns={columns} data={datainfo} fixedHeader></DataTable>
-      <div></div>
+
+
+      <div id="innerMainVehicles">
+        <VehiclesPopUp trigger={buttonPopUp} 
+                       setTrigger={setButtonPopUp}
+                       addVehiclesItem={(item) => addVehiclesItem(item, refreshData)} />
+                     
+
+        <div id="vehiclesTable">
+          <DataTable columns={columns}
+                     data={datainfo}
+                     fixedHeader
+                     className="dataTableVehicles"/>
+        </div>
+
+        <div id="vehiclesInfo">
+
+          <div className="topInfo">
+            <div className="innerheaderInfo">
+              <EditIcon className="iconBC"/>
+              <label>פרטי הרכב</label>
+            </div>
+ 
+           </div>
+          <div className="bottumInfo">
+            <div className="innerheaderInfo">
+              <AddCircleIcon className="iconBC"/>
+              <label>טיפולי רכב</label>              
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
     </div>
   );
 };

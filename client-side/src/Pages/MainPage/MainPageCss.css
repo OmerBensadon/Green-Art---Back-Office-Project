@@ -1,0 +1,59 @@
+#mainBodyMainPage{
+    width: 100%;
+    height: 100%;
+    background-color:#f5f5f5 ;  
+}
+#headerMainPage{
+    height: 10%;
+    padding: 0px 40px 0px 30px;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom: 1px solid #5391659f;
+    background-color: #fafafa;
+}
+#headerMainPage h1 {
+    color: black;
+    font-size: 20px;
+    margin: 0;
+}
+#innerMainPage{
+    overflow: scroll;
+
+    width: 100%;
+    height: 90%;
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:right;
+}
+.buttonMainPage{
+    background-color:rgb(54, 136, 218);
+    border: 1px rgb(54, 136, 218);
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+}
+.calanderRight{
+    background-color: aquamarine;
+    width: 70%;
+}
+.dataListLeft{
+background-color:bisque;
+width: 30%;
+}
+
+
+.fc-direction-ltr{
+    direction: rtl;
+    text-align: center;
+}
+.fc .fc-scroller-harness{
+    direction: rtl;
+}
+colgroup{
+    direction: rtl;
+}
+
+

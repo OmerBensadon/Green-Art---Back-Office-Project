@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./TeamPopUp.css";
+import "./TeamCss.css";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 function TeamPopUp(props) {

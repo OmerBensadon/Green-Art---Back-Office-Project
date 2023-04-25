@@ -31,7 +31,7 @@ code {
   align-items:center;
 }
 .h1Catalog{
-  margin-right: 500px;
+  margin-right: 750px;
   text-align: center;
   font-size: 30px;
   line-height: 60px;
@@ -87,15 +87,6 @@ code {
 
 
 
-.fc-direction-ltr{
-  direction: rtl;
-  text-align: center;
-}
-.fc .fc-scroller-harness{
-  direction: rtl;
-}
-colgroup{
-  direction: rtl;
-}
+
 
 

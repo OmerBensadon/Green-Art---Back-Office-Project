@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState , useEffect , useCallback }  from "react";
+import "./InventoriesCss.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import DataTable from "react-data-table-component";
 import { Button } from "react-bootstrap";
-import InventoryPopUp from "./InventoryPopUp";
-
-
-
-
-
+import InventoriePopUp from "./InventoryPopUp";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 let data=[{
   setting: <button>עריכה</button>,
@@ -15,25 +14,20 @@ let data=[{
   itemAmount: "בנסעדון",
   itemDescription: "עומר",
   id: "1131235",
-  itemPicture:"picture"
-},
+  itemPicture:"picture"},
 {
   setting: "-",
   position: "נהגת",
   lastname: "אלקובי",
   firstname: "לין",
-  id: "123456",
-},
+  id: "123456",},
 {
   setting: "-",
   position: "נהג",
   lastname: "אפשטיין",
   firstname: "דור",
   id: "345678",
-}
-];
-
-
+}];
 
 const url = 'http://194.90.158.74/cgroup96/prod/api/inventoryItems/get?timestamp=' + Date.now();
 
@@ -44,9 +38,6 @@ const password = 'your_password';
 
 const headers = new Headers();
 headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
-
-
-
 
 function addInventoryItem(item,refreshData) {
   fetch(urlpost, {
@@ -71,8 +62,6 @@ function addInventoryItem(item,refreshData) {
       console.log("err post=", error);
     });
 }
-
-
 
 function Inventories() {
   const [datainfo, setDatainfo] = useState([]);
@@ -148,14 +137,14 @@ function Inventories() {
       selector: "delete",
       sortable: false,
       right: true,
-      cell: (row) => <Button onClick={() => deleteInventoryItem(row.itemSerialNum)}>מחיקת פריט</Button>,
+      cell: (row) => <DeleteIcon onClick={() => deleteInventoryItem(row.itemSerialNum)}>מחיקת פריט</DeleteIcon>,
     },
     {
       name: "עדכון פריט",
       selector: "setting",
       sortable: true,
       right: true,
-      cell: (row) => <Button onClick={()=>('')}>עדכון פריט</Button>,
+      cell: (row) => <EditIcon onClick={()=>('')}>עדכון פריט</EditIcon>,
     },
     {
       name: "תמונת פריט",
@@ -192,27 +181,33 @@ function Inventories() {
       selector: "itemSerialNum",
       sortable: true,
       right: true,
-    },
-   
-  
-    
-  ];
+    },];
+
 
   return (
-    <div>
-      <div className="headerCatalog">
-        <button onClick={() => setButtonPopUp(true)} className="buttonCatalog">
+    <div id="mainBodyInventories">
+
+      <div id="headerInventories">
+        <button onClick={() => setButtonPopUp(true)} className="buttonInventories">
           הוספת פריט מלאי 
         </button>
-        <h1 className="h1Catalog">
-          מלאי
-        </h1>
+        <h1>מלאי</h1>
       </div>
-      <InventoryPopUp trigger={buttonPopUp} setTrigger={setButtonPopUp} addInventoryItem={(item) => addInventoryItem(item, refreshData)} />
-      <DataTable columns={columns} data={datainfo} fixedHeader></DataTable>
-      <div></div>
+
+
+      <div id="innerMainInventories">
+        <InventoriePopUp trigger={buttonPopUp}
+                         setTrigger={setButtonPopUp}
+                         addInventoryItem={(item) => addInventoryItem(item, refreshData)}
+                         />
+        
+        <DataTable columns={columns}
+                   data={datainfo}
+                   fixedHeader/>
+      </div>
+
     </div>
   );
-}
+};
 
 export default Inventories;

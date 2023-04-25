@@ -1,0 +1,28 @@
+#mainBodyOffers{
+    width: 100%;
+    height: 100%;
+    background-color:#f5f5f5 ;    
+}
+#headerOffers{
+    height: 10%;
+    padding: 0px 40px 0px 30px;
+    display: flex;
+    align-items:center;
+    justify-content: right;
+    border-bottom: 1px solid #5391659f;
+    background-color: #fafafa;
+}
+#headerOffers h1 {
+    color: black;
+    font-size: 20px;
+    margin: 0;
+}
+#innerMainOffer{
+    overflow: scroll;
+    width: 100%;
+    height: 90%;
+    display:grid;
+    flex-direction:column;
+    justify-content:right;
+    
+}

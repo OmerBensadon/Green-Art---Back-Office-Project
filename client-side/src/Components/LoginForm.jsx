@@ -13,7 +13,6 @@ const headers = new Headers();
 headers.append('Authorization', 'Basic ' + btoa(username1 + ':' + password1));
 
 
-
 export const LoginForm = (props) => {
   const [usernameInput, setUsernameInput] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +20,7 @@ export const LoginForm = (props) => {
   const [forggotPassword, setForggotPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [errorMessageVisible, setErrorMessageVisible] = useState(false);
+
   const changePassword = () => {
     setForggotPassword(!forggotPassword);
   }
@@ -44,7 +44,7 @@ export const LoginForm = (props) => {
       password: password
     };
     console.log(inputInfo);
-    
+
     console.log('Before fetch call');
     fetch(urllogin,{
       method: 'POST',
@@ -86,17 +86,12 @@ export const LoginForm = (props) => {
     .catch((error) => {
       console.error('There was a problem with the fetch operation:', error);
     });
-  
-
-
   };
+
   const resetTextHandler = () => {
     setPassword("");
     setUsernameInput("");
   };
-
- 
-  
 
   return (
     <div id="mainPageLoginForm">
@@ -133,13 +128,11 @@ export const LoginForm = (props) => {
             />
            </div>
           <a href="#" onClick={changePassword} >שכחתי סיסמא</a>
-          <Button
-           onClick={loginHandler}
-           className="login_Button"
-          variant="primary"
-          type="button"
-          >
-             כניסה
+          <Button onClick={loginHandler}
+                  className="login_Button"
+                  variant="primary"
+                  type="button">
+            כניסה
           </Button>
         </>) : (
         <>
@@ -153,7 +146,7 @@ export const LoginForm = (props) => {
           onChange={usernameInputHandler}
         /></div>
         <div className="login__control password-input-wrapper">
-          <label>כתובת אי-מייל</label>
+        <label>כתובת אי-מייל</label>
           <input
             placeholder="******"
             type={showPassword ? "text" : "password"}
@@ -167,18 +160,18 @@ export const LoginForm = (props) => {
             />
            </div>
            <br></br>
-           <Button onClick={changePassword} className="login_Button" variant="primary">
+           <Button onClick={changePassword}
+                   className="login_Button" 
+                   variant="primary">
             חזרה לעמוד כניסה
           </Button>
       </>)}
       </div>
-
       {errorMessage !== "" && (
-  <div className="popup">
-    <div className="message">{errorMessage}</div>
-  </div>
-)}
-
+        <div className="popup">
+          <div className="message">{errorMessage}</div>
+        </div>)}
+        
     </div>
   );
 }

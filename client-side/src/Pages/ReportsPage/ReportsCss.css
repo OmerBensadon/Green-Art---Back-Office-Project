@@ -1,0 +1,41 @@
+#mainBodyReports{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+#headerReports{
+    height: 10%;
+    padding: 30px;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom: 1px solid black;
+}
+#headerReports h1 {
+    color: black;
+    font-size: 18px;
+    margin: 0;
+}
+.buttonReports{
+    background-color:rgb(54, 136, 218);
+    border: 1px rgb(54, 136, 218);
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0px 5px 0px 5px;  
+}
+#innerMainReports{
+    overflow: scroll;
+    background-color: rgba(178, 178, 178, 0.333);
+    width: 100%;
+    height: 90%;
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:right;
+    
+}
+#dataGrid{
+    justify-content: left;
+}
