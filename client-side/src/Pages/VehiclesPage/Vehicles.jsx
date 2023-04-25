@@ -88,13 +88,14 @@ const Vehicles = () => {
         result.map((st) => console.log(st.itemAmount));
         const updatedDatainfo = result.map((st) => {
           return {
-            setting: <button>עריכה</button>,
-            itemSerialNum: st.itemSerialNum,
-            itemName: st.itemName,
-            itemAmount: st.itemAmount,
-            itemDescription: st.itemDescription,
-            id: st.employee_id,
-            itemPicture: st.itemPicture,
+            setting: <button >עריכה</button>,
+            licensePlateNum: st.licensePlateNum,
+            vehicleType: st.vehicleType,
+            vehicleColor: st.vehicleColor,
+            licenseType: st.licenseType,
+            vehicleOwnership: st.vehicleOwnership,
+            manufacturingYear: st.manufacturingYear,
+            key: st.licensePlateNum,
           };
         });
         console.log(updatedDatainfo);
@@ -126,28 +127,34 @@ const Vehicles = () => {
      },
      {
        name: "מספר רישוי",
-       selector: "itemSerialNum",
+       selector: "licensePlateNum",
        sortable: true,
        right: true,
      },
      {
-       name: " סוג רכב",
-       selector: "itemDescription",
+       name: "סוג רכב",
+       selector: "vehicleType",
        sortable: true,
        right: true,
      },
      {
        name: " בעלות",
-       selector: "itemAmount",
+       selector: "vehicleOwnership",
        sortable: true,
        right: true,
      },
      {
        name: "צבע",
-       selector: "itemName",
+       selector: "vehicleColor",
        sortable: true,
        right: true,
-     }
+     },
+     {
+       name: "שנת יצור",
+       selector: "manufacturingYear",
+       sortable: true,
+       right: true,
+     },
    ];
 
   return (
