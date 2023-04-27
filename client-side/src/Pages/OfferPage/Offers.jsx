@@ -11,6 +11,10 @@ const Offers = () => {
       </div>
 
       <div id="innerMainOffer">
+        <div className="innerOffer">
+
+          
+        </div>
       </div>
 
     </div>

@@ -3,19 +3,27 @@ import DataTable from "react-data-table-component";
 import TeamPopUp from "./TeamPopUp";
 import { fetchEmployees } from "../api";
 import { Button } from "react-bootstrap";
-import { Dropdown } from 'primereact/dropdown';
 import "./TeamCss.css";
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
+
+import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+
+
+
+
+
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { Menu } from "react-pro-sidebar";
 
 
 
@@ -145,63 +153,43 @@ function Team() {
       <div id="innerMainTeam">
         <TeamPopUp trigger={buttonPopUp} setTrigger={setButtonPopUp} />
 
-        <div className="rightJobInfo">
+        <div className="JobInfo">
           <div className="headerInnerInfo">
-            <label>תפקידים</label>
-          </div>
-          <div className="mainRightInfo">
-            <List>
 
-              <ListItem>
-                <ListItemButton>
-                 <label className="labelList">כל התפקידים</label>
-                </ListItemButton>
-              </ListItem>
+            <Box width='150px'>
+              <TextField
+                label='סטטוס עובד'
+                select 
+                fullWidth
+                >
+                  <MenuItem value=""><em>None</em></MenuItem>
+                  <MenuItem value={1}>עובד פעיל</MenuItem>
+                  <MenuItem value={2}>עובד לא פעיל</MenuItem>
+              </TextField>
+            </Box>
 
-              <ListItem>
-                <ListItemButton>
-                  <label className="labelList">תפקיד 1</label>
-                </ListItemButton>
-              </ListItem>
+            <Box width='150px'>
+              <TextField
+                label='סוג עובד'
+                select 
+                fullWidth
+                >
+                  <MenuItem value=""><em>None</em></MenuItem>
+                  <MenuItem value={1}>עובד חברה</MenuItem>
+                  <MenuItem value={2}>עובד כוח אדם </MenuItem>
+              </TextField>
+            </Box>
 
-              <ListItem>
-                <ListItemButton>
-                  <label className="labelList">תפקיד 2</label>
-                </ListItemButton>
-              </ListItem>
 
-              <ListItem>
-                <ListItemButton>
-                  <label className="labelList">תפקיד 3</label>
-                </ListItemButton>
-              </ListItem>
-              
-            </List>
-          </div>
-        </div>
 
-        <div className="leftJobInfo">
-        
-          <div className="headerInnerInfo">
-            <input type={"text"} onChange={filterDataTable}/>
-            <TextField className="searchInput" label="שם עובד"/>
 
-            <Select
-              autoWidth
-              label="עובד">
-              <MenuItem value="עובד">
-              </MenuItem>
-              <MenuItem value={10}>Twenty</MenuItem>
-              <MenuItem value={21}>Twenty one</MenuItem>
-              <MenuItem value={22}>Twenty one and a half</MenuItem>
-            </Select>
+            <TextField label="שם עובד"/>
             
-
 
             
           </div>
 
-          <div className="mainLeftInfo">
+          <div className="mainInfo">
           <DataTable 
             columns={reversedColumns} 
             data={data} 

@@ -39,19 +39,16 @@ const MainPage = () => {
       info.el.querySelector(".fc-title").textContent = info.event.title;
     },
   };
-
   const [events, setEvents] = useState([
     { title: "event 1", date: "2023-04-18" },
     { title: "event 2", date: "2023-04-19" },
   ]);
   const [isAddingEvent, setIsAddingEvent] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-
   const handleDateSelect = (selectInfo) => {
     setSelectedDate(selectInfo.startStr);
     setIsAddingEvent(true);
   };
-
   const handleSave = ({ title, date }) => {
     setEvents([...events, { title, date }]);
     setIsAddingEvent(false);
@@ -71,7 +68,8 @@ const MainPage = () => {
       </div>
 
 
-      <div id="innerMainPage" style={{ backgroundColor: "white" }}>
+      <div id="innerMainPage">
+
         <div className="calanderRight">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -97,8 +95,8 @@ const MainPage = () => {
         </div>
 
         <div className="dataListLeft">
-        <div>רשימת אירועים</div>
-          ijfifji
+        <div className="headerDataListLeft">רשימת אירועים ואילוצים</div>
+          
         </div>
       </div>
     </div>
