@@ -6,28 +6,8 @@ import { Button } from "react-bootstrap";
 import InventoriePopUp from "./InventoryPopUp";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import UpdateInventoryPopUp from "./UpdateInventoryPopUp"
 
-let data=[{
-  setting: <button>עריכה</button>,
-  itemSerialNum:"2",
-  itemName: "מנהל",
-  itemAmount: "בנסעדון",
-  itemDescription: "עומר",
-  id: "1131235",
-  itemPicture:"picture"},
-{
-  setting: "-",
-  position: "נהגת",
-  lastname: "אלקובי",
-  firstname: "לין",
-  id: "123456",},
-{
-  setting: "-",
-  position: "נהג",
-  lastname: "אפשטיין",
-  firstname: "דור",
-  id: "345678",
-}];
 
 const url = 'http://194.90.158.74/cgroup96/prod/api/inventoryItems/get?timestamp=' + Date.now();
 
@@ -67,7 +47,9 @@ function Inventories() {
   const [datainfo, setDatainfo] = useState([]);
   const [buttonPopUp, setButtonPopUp] = useState(false);
   const [dataUpdated, setDataUpdated] = useState(false);
-
+  const [currentItem, setCurrentItem] = useState({});
+  const [showEditPopup, setShowEditPopup] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
   const refreshData = useCallback(() => setDataUpdated(!dataUpdated), [dataUpdated]);
 
 
@@ -97,6 +79,35 @@ function Inventories() {
       });
       
   }
+
+  function updateInventoryItem(itemId, updatedItem) {
+    const urlUpdate = `http://194.90.158.74/cgroup96/prod/api/inventoryItems/put`;
+  
+    fetch(urlUpdate, {
+      method: 'PUT',
+      headers: {
+        ...headers, // Spread the existing headers
+        'Content-Type': 'application/json' // Add the 'Content-Type' header
+      },
+      body: JSON.stringify({ ...updatedItem, itemSerialNum: itemId })
+    })
+      .then(res => {
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        return res.json()
+      })
+      .then(result => {
+        console.log("update inventory item result= ", result);
+        refreshData();
+      })
+      .catch(error => {
+        console.log("err update=", error);
+      });
+  }
+  
+
+
 
   useEffect(() => {
     fetch(url, {
@@ -144,7 +155,16 @@ function Inventories() {
       selector: "setting",
       sortable: true,
       right: true,
-      cell: (row) => <EditIcon onClick={()=>('')}>עדכון פריט</EditIcon>,
+      cell: (row) => (
+        <EditIcon
+          onClick={() => {
+            setShowEditPopup(true);
+            setCurrentItem(row);
+          }}
+        >
+          עדכון פריט
+        </EditIcon>
+      ),
     },
     {
       name: "תמונת פריט",
@@ -205,6 +225,20 @@ function Inventories() {
                    data={datainfo}
                    fixedHeader/>
       </div>
+
+      <div id="innerMainInventories">
+      <UpdateInventoryPopUp
+
+      trigger={showEditPopup}
+      setTrigger={setShowEditPopup}
+      onUpdateInventoryItem={updateInventoryItem}
+      currentItem={currentItem}       
+
+      />
+
+
+      </div>
+      
 
     </div>
   );
