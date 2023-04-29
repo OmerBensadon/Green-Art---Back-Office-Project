@@ -50,7 +50,7 @@ function NewCustomers ({trigger, setTrigger, addCustomers, children}) {
     const setRepresentiveEmailInput = (e) => {
         setRepresentiveEmail(e.target.value);
         console.log("RepresentiveEmail:" + e.target.value);
-    }
+    };
 
     const saveHandler = (e) => {
         e.preventDefault();
@@ -93,16 +93,16 @@ function NewCustomers ({trigger, setTrigger, addCustomers, children}) {
         <div className="costumerPopUp">
             
             <div className="costumerInnerPopUp">
-                <HighlightOffIcon onClick={closeForm}/>
-                <Button onClick={saveHandler}>שמירה</Button>
 
-                <div className="costumerHeaderPopUp">
-                    <br/>
-                    <label>הוספת לקוח חדש</label>
+                <div className="innerPopUP1">
+                <HighlightOffIcon onClick={closeForm}/>
                 </div>
 
-                <div className="costumerMainPopUp">
-                    <div className="costumerMainPopUp1">
+                <div className="innerPopUP2">
+                    <h1>הוספת לקוח חדש</h1>
+                </div>
+
+                <div className="innerPopUP3">
                         <input placeholder="מספר חברה"
                                type="text"
                                value={clientNumber}
@@ -124,9 +124,9 @@ function NewCustomers ({trigger, setTrigger, addCustomers, children}) {
                                onChange={setClientEmailInput}/>
 
                     </div>
-                    <div className="costumerMainPopUp2">
+                    <div className="innerPopUP4">
 
-                        <input placeholder="שם פרטי"
+                    <input placeholder="שם פרטי"
                                type="text"
                                value={clientFirstName}
                                onChange={setClientFirstNameInput}/>
@@ -145,11 +145,11 @@ function NewCustomers ({trigger, setTrigger, addCustomers, children}) {
                                type="text"
                                value={representiveEmail}
                                onChange={setRepresentiveEmailInput}/>
+                               
                     </div>
-
+                <div className="innerPopUP5">
+                    <Button onClick={saveHandler}>שמירה</Button>
                 </div>
-
-
             </div>
         </div>
 

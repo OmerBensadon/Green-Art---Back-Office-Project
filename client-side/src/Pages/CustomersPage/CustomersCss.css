@@ -71,14 +71,6 @@
     align-items: center;
     padding: 0px 10px 0px 10px;
 }
-/*.headerInnerRight input{
-    border-radius: 5px;
-    border-color: #fafafa;
-    text-align: right;
-    padding: 0px 10px 0px 10px;
-    height: 35px;
-    width: 200px;
-}*/
 .mainInnerRightCusotmer{
     height: 80%;
     width: 100%;
@@ -121,47 +113,58 @@
 }
 .costumerInnerPopUp{
     position:relative;
-    padding: 30px;
+    padding: 25px;
     width: 500px;
     height: 500px;
     background-color: #fff;
+    display:block;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
 }
-.costumerInnerPopUp .closeBtn{
-
-    justify-content: center;
+.innerPopUP1{
+    background-color: bisque;
+    display: flex;
+    justify-content: right;
     align-items: center;
+    height: 5%;
 }
-.costumerH1PopUp{
-    text-align: center;
-    font-size: 15px;
-}
-.costumerHeaderPopUp{
-    height: 10%;
+.innerPopUP2{
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: aqua;
     width: 100%;
 }
-.costumerMainPopUp{
-    height: 80%;
+.innerPopUP2 h1{
+    text-align: center;
+    font-weight: 800px;
+    font-size: medium;
+
+
 }
-.costumerMainPopUp1{
-    height: 50%;
+.innerPopUP3{
+    background-color: yellow;
+    height: 35%;
+    
 }
-.costumerMainPopUp1 input{
-    background-color:burlywood;
-    text-align: right;
+.innerPopUP4{
+    background-color:yellowgreen;
+    height: 35%;
+    
+}
+.innerPopUP5{
+    background-color:violet;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 
-.costumerMainPopUp2{
-    height: 50%;
-    background-color:chocolate;
-}
+
 
 div #\:r1\:{
     border-radius: 50px;

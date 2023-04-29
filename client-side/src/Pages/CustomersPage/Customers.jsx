@@ -168,7 +168,7 @@ function Customers () {
             </MenuHandler>
               <MenuList >
                 <MenuItem><EditIcon/></MenuItem>
-                <MenuItem><DeleteIcon/></MenuItem>
+                <MenuItem><DeleteIcon onClick={() => deleteCustomer(row.costumerNum)}/></MenuItem>
             </MenuList>
           </Menu>
         </div>
