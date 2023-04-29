@@ -69,7 +69,7 @@
     display: flex;
     justify-content:right;
     align-items: center;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 10px 0px 10px;
 }
 /*.headerInnerRight input{
     border-radius: 5px;
@@ -89,6 +89,22 @@
 }
 
 
+.sc-hLseeU .sc-eDDNvR .sc-irTswW .dqfNny{
+    background-color: aqua;
+}
+.dqfNny{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
 
 /*CSS for the pop up window*/
 .costumerPopUp{
@@ -106,20 +122,48 @@
 .costumerInnerPopUp{
     position:relative;
     padding: 30px;
-    max-width: 640px;
+    width: 500px;
+    height: 500px;
     background-color: #fff;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5); 
 }
 .costumerInnerPopUp .closeBtn{
-    position: absolute;
+
     justify-content: center;
     align-items: center;
-    bottom: 20px;
 }
 .costumerH1PopUp{
     text-align: center;
     font-size: 15px;
+}
+.costumerHeaderPopUp{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    width: 100%;
+}
+.costumerMainPopUp{
+    height: 80%;
+}
+.costumerMainPopUp1{
+    height: 50%;
+}
+.costumerMainPopUp1 input{
+    background-color:burlywood;
+    text-align: right;
+}
+
+
+.costumerMainPopUp2{
+    height: 50%;
+    background-color:chocolate;
+}
+
+div #\:r1\:{
+    border-radius: 50px;
+    background-color: aqua;
 }

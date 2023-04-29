@@ -45,9 +45,8 @@ const Suppliers = () => {
     },
 
   ];
-  const rows = [
+  const rows =[
     {
-      id: 1,
       companyNum: "12345",
       companyName: "לין אחזקות בעמ",
       companyAddress: "אור עקיבא",
@@ -55,33 +54,38 @@ const Suppliers = () => {
       companyStartDate: "",
       companyRepresentitve: "",
     },
-  ];
+  ]
 
   return (
     <div id="mainBodySuppliers">
+
       <div id="headerSuppliers">
         <button className="buttonSuppliers">הוספת ספק חדש</button>
         <h1>ספקים</h1>
       </div>
 
       <div id="innerMainSuppliers">
+
         <div id="innerRight">
+
           <div className="headerInnerRight">
-            <TextField label="Lin?" size="small" />
+            <TextField label="Lin?"
+                      size="small"/>
             <FormControl size="small">
               <InputLabel>סוג ספק</InputLabel>
-              <Select label="SuppliersType" value={suppliersType}>
-                <MenuItem value="">
-                  <em> </em>
-                </MenuItem>
-                <MenuItem>ספק פעיל</MenuItem>
-                <MenuItem>ספק לא פעיל</MenuItem>
+              <Select label="SuppliersType"
+                      value={suppliersType}>
+                        <MenuItem value=""><em> </em></MenuItem>
+                        <MenuItem>ספק פעיל</MenuItem>
+                        <MenuItem>ספק לא פעיל</MenuItem>
               </Select>
             </FormControl>
           </div>
 
           <div className="mainInnerRight">
-            <DataGrid columns={columns} rows={rows} />
+            <DataGrid></DataGrid>
+
+
           </div>
         </div>
 
@@ -90,7 +94,9 @@ const Suppliers = () => {
             <label>פרטי ספק</label>
           </div>
         </div>
+
       </div>
+
     </div>
   );
 };

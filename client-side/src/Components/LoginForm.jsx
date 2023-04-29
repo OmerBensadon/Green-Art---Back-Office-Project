@@ -20,8 +20,7 @@ export const LoginForm = (props) => {
   const [forggotPassword, setForggotPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [errorMessageVisible, setErrorMessageVisible] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [email, setEmail] = useState("");
+
   const changePassword = () => {
     setForggotPassword(!forggotPassword);
   }
@@ -94,48 +93,6 @@ export const LoginForm = (props) => {
     setUsernameInput("");
   };
 
-  const resetPasswordHandler = () => {
-    const resetInfo = {
-      username: usernameInput,
-      EmployeeEmail: email,
-    };
-
-    const urlChngPW ="http://194.90.158.74/cgroup96/prod/api/employee/resetpw";
-
-
-    fetch(urlChngPW, {
-      method: "POST",
-      headers: {
-        ...headers, // Spread the existing headers
-        "Content-Type": "application/json", // Add the 'Content-Type' header
-      },
-      body: JSON.stringify(resetInfo),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Network response was not ok");
-        }
-      })
-      .then((data) => {
-        console.log("Data:", data);
-        setSuccessMessage(`${data}`);
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-        alert("Error resetting password");
-      });
-  };
-
-  const closeSuccessPopup = () => {
-    setSuccessMessage("");
-  };
-
-
-
-
-
   return (
     <div id="mainPageLoginForm">
       <div id="imgLoninForm"></div>
@@ -183,19 +140,19 @@ export const LoginForm = (props) => {
         <div className="login__control">
         <label>תעודת זהות</label>
         <input
-          placeholder="333222111"
+          placeholder="Anonimus@gmail.com"
           type="text"
           value={usernameInput}
           onChange={usernameInputHandler}
         /></div>
         <div className="login__control password-input-wrapper">
         <label>כתובת אי-מייל</label>
-        <input
-           placeholder="***@****.com"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          />
+          <input
+            placeholder="******"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={passwordInputHandler}
+            />
           <FontAwesomeIcon
             icon={showPassword ? faEyeSlash : faEye}
             onClick={toggleShowPassword}
@@ -203,15 +160,6 @@ export const LoginForm = (props) => {
             />
            </div>
            <br></br>
-           <Button
-             onClick={resetPasswordHandler}
-             className="resetPassword_Button"
-               variant="primary"
-            type="button"
-            >
-                   שליחה
-           </Button>
-          
            <Button onClick={changePassword}
                    className="login_Button" 
                    variant="primary">
@@ -223,25 +171,7 @@ export const LoginForm = (props) => {
         <div className="popup">
           <div className="message">{errorMessage}</div>
         </div>)}
-        <br></br>
-       
-        {successMessage !== "" && (
-         <div style={{ textAlign: "center" }} className="success-popup">
-          <div className="success-popup-content">
-         <div className="success-message">{successMessage}
-         <br></br>
-         <div className="success-message">אנא רשום סיסמתך בצד לפני יציאה מהחלונית</div>
-         </div>
-         <button style={{direction:'rtl'}} className="close-popup" onClick={closeSuccessPopup}>
-                 לחצן יציאה
-             </button>
-          </div>
-         </div>
-        )}
-
-
-
-
+        
     </div>
   );
 }
