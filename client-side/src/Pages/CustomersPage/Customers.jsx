@@ -63,7 +63,7 @@ function Customers () {
       body: JSON.stringify({clientNumber : customerId})
     })
     .then(res => {
-      console.log('Customer number is: ',clientNumber);
+      console.log('Customer number is: ',customerId);
       console.log('res = ', res);
       console.log('res.status', res.status);
       console.log('res.ok', res.ok);

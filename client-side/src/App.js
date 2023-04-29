@@ -12,11 +12,12 @@ function App(){
 
   return (
     <div>
-      {currentForm === "loginform" ? (
+      {/* {currentForm === "loginform" ? (
         <LoginForm onFormSwitch={toggleForm} />
       ) : (
         <Layout />
-      )}
+      )} */}
+      <Layout />
     </div>
   );
 
